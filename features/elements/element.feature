@@ -1,0 +1,262 @@
+Feature: Elements
+
+  Background:
+    Given I am on the static elements page
+
+  Scenario: Clear an element
+    When I type "abcDEF" into the text field
+    Then the text field should contain "abcDEF"
+    When I clear the text field
+    Then the text field should contain ""
+
+  Scenario: Elements enabled?
+    When I check an enabled button
+    Then it should know it is enabled
+    And it should know that is it not disabled
+    When I check a disabled button
+    Then it should know it is not enabled
+    And it should know that it is disabled
+
+  @javascript
+  Scenario: Setting focus and finding the element with focus
+    When I set the focus to the test text_field
+    Then I should know that the text_field has the focus
+
+  Scenario: Link element methods
+    When I retrieve a link element
+    Then I should know it exists
+    And I can assert the "google_search_id" element exists
+    And I should know it is visible
+    And I should know the text is "Google Search"
+    And I should know the html is "<a href="success.html" id="link_id" name="link_name" class="link_class" title="link_title">Google Search</a>"
+    And I should know it is equal to itself
+    And I should know the tag name is "a"
+    And I should know the attribute "readonly" is false
+    And I should know the attribute "href" includes "success.html"
+    And I should be able to click it
+
+  @javascript
+  Scenario: Link element methods for javascript driver
+    When I retrieve a link element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text is "Google Search"
+    And I should know the html is "<a href="success.html" id="link_id" name="link_name" class="link_class" title="link_title">Google Search</a>"
+    And I should know it is equal to itself
+    And I should know the tag name is "a"
+    And I should know the attribute "readonly" is false
+    And I should know the attribute "href" includes "success.html"
+    And I should be able to click it
+
+  Scenario: Button element methods
+    When I retrieve a button element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the value is "Click Me"
+    And I should know it is equal to itself
+    And I should know the tag name is "input"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Check Box element methods
+    When I retrieve a check box element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text is ""
+    And I should know the value is "1"
+    And I should know it is equal to itself
+    And I should know the tag name is "input"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Div element methods
+    When I retrieve the div element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text is "page-object rocks!"
+    And I should know it is equal to itself
+    And I should know the tag name is "div"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Radio Button element methods
+    When I retrieve a radio button
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text is ""
+    And I should know the value is "Milk"
+    And I should know it is equal to itself
+    And I should know the tag name is "input"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Select List element methods
+    When I retrieve a select list
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes "Test 1"
+    And I should know the value is "option1"
+    And I should know it is equal to itself
+    And I should know the tag name is "select"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Table element methods
+    When I retrieve a table element
+    Then I should know it is visible
+    And I should know the text includes "Data1"
+    And I should know it is equal to itself
+    And I should know the tag name is "table"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Table Cell element methods
+    When I retrieve table cell
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes "Data4"
+    And I should know it is equal to itself
+    And I should know the tag name is "td"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Text Field element methods
+    When I retrieve a text field
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes ""
+    And I should know the value is blank 
+    And I should know it is equal to itself
+    And I should know the tag name is "input"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Text Area element methods
+    When I retrieve the text area
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes ""
+    And I should know the value is ""
+    And I should know it is equal to itself
+    And I should know the tag name is "textarea"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Image element methods
+    When I get the image element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes ""
+    And I should know it is equal to itself
+    And I should know the tag name is "img"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  @javascript
+  Scenario: Hidden Field element methods
+    When I retrieve the hidden field element
+    Then I should know it exists
+    And I should know it is not visible
+    And I should know the text includes ""
+    And I should know the value is "12345"
+    And I should know it is equal to itself
+    And I should know the tag name is "input"
+    And I should know the attribute "readonly" is false
+
+  Scenario: Form element methods
+    When I locate the form
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes ""
+    And I should know it is equal to itself
+    And I should know the tag name is "form"
+    And I should know the attribute "readonly" is false
+
+  Scenario: List item element methods
+    When I retrieve a list item element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text is "Item One"
+    And I should know it is equal to itself
+    And I should know the tag name is "li"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Unordered list element methods
+    When I retrieve an unordered list element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes "Item One"
+    And I should know the text includes "Item Two"
+    And I should know the text includes "Item Three"
+    And I should know it is equal to itself
+    And I should know the tag name is "ul"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Ordered list element methods
+    When I retrieve an ordered list element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text includes "Number One"
+    And I should know the text includes "Number Two"
+    And I should know the text includes "Number Three"
+    And I should know it is equal to itself
+    And I should know the tag name is "ol"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  Scenario: Heading element methods
+    When I retrieve a heading element
+    Then I should know it exists
+    And I should know it is visible
+    And I should know the text is "h1's are cool"
+    And I should know it is equal to itself
+    And I should know the tag name is "h1"
+    And I should know the attribute "readonly" is false
+    And I should be able to click it
+
+  @pending
+  Scenario: Firing an event
+    When I set the focus to the test text_field using the onfocus event
+    Then I should see the onfocus text "changed by onfocus event"
+
+  @javascript
+  Scenario: Hovering over an element
+    Given I am on the hover page
+    When I hover over the hello link
+    Then the font size should be "20px"
+
+  Scenario: Setting focus on an element
+    When I set the focus on the test text_field
+    Then I should see the onfocus text "changed by onfocus event"
+
+  @javascript
+  Scenario: Finding a parent element
+    When I find the child link element
+    And ask for the parent element
+    Then I should have a div parent
+
+  Scenario: Getting an element's id
+    When I retrieve a button element
+    Then I should know its id is "button_id"
+
+  @javascript
+  Scenario: Double Clicking
+    Given I am on the Double Click page
+    When I double click the button
+    Then the paragraph should read "Double Click Received"
+
+  @javascript
+  Scenario: Scrolling so an element is visible
+    When I retrieve a heading element
+    And I scroll the heading element into view
+    Then the heading element should be visible
+
+  Scenario: Accessing an HTML 5 element using the declaration
+    When I retrieve the figure using the declaration
+    Then I should see the figure contains an image
+
+  Scenario: Getting the class name for an element
+    When I search for the paragraph by "id"
+    Then I should know the paragraph class is "p_class"

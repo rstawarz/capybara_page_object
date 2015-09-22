@@ -1,8 +1,7 @@
-# Capybara::PageObject
+# CapybaraPageObject
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/capybara/page_object`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a partial port of the [`page_object` gem](https://github.com/cheezy/page-object) to use Capybara
+instead of directly relying upon the Selenium or Waitr drivers.
 
 ## Installation
 
