@@ -55,6 +55,14 @@ module CapybaraPageObject
       end
     end
 
+    def loaded?
+      unless respond_to?(:has_expected_element?)
+        raise "Must set expected_element to use the `loaded?` method"
+      end
+
+      has_expected_element?
+    end
+
     def go_back
       page.evaluate_script('window.history.back()')
     end

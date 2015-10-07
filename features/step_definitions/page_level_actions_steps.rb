@@ -131,6 +131,7 @@ Then /^the page can assert the (\w*) element is present$/ do |element_name|
   expect(@page.send("has_no_#{element_name}?")).to eq(false)
   expect { @page.send("assert_has_#{element_name}") }.to_not raise_error
   expect { @page.send("assert_has_no_#{element_name}") }.to raise_error(Capybara::ExpectationNotMet)
+  expect(@page).to be_loaded
 end
 
 Then /^the page can assert the (\w*) element is NOT present$/ do |element_name|
@@ -149,4 +150,16 @@ Then /^the page should not have the expected element$/ do
 
   expect{FakePage.new.has_expected_element?}
     .to raise_error(Capybara::ExpectationNotMet)
+
+  expect{FakePage.new.loaded?}
+    .to raise_error(Capybara::ExpectationNotMet)
+end
+
+Then /^the page should raise an exception when expected eleemnt is not specified$/ do
+  class FakeExpectedElementPage
+    include CapybaraPageObject::PageObject
+  end
+
+  expect{FakeExpectedElementPage.new.loaded?}
+    .to raise_error("Must set expected_element to use the `loaded?` method")
 end

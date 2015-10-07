@@ -28,6 +28,9 @@ Feature: Page level actions
   Scenario: Validating that an expected element does not exist
     Then the page should not have the expected element
 
+  Scenario: Validating that an expected element wasn't set
+    Then the page should raise an exception when expected eleemnt is not specified
+
   Scenario: Handling alert popups
     When pending
     When I handle the alert
