@@ -2,7 +2,7 @@ require 'pry'
 class Page
   include CapybaraPageObject::PageObject
 
-  page_url('/html/static_elements.html')
+  page_path('/html/static_elements.html')
 
   expected_title "Static Elements Page"
   expected_element :hello0
